@@ -22,10 +22,6 @@ data = pd.DataFrame({
 st.subheader("Dataset")
 st.dataframe(data)
 
-# --------------------------
-# ID3 FUNCTIONS
-# --------------------------
-
 def entropy(col):
     values, counts = np.unique(col, return_counts=True)
     ent = 0
@@ -70,11 +66,6 @@ decision_tree = id3(data, 'PlayTennis', attributes)
 
 st.subheader("🌳 Decision Tree Structure")
 st.json(decision_tree)
-
-# --------------------------
-# USER INPUT
-# --------------------------
-
 st.sidebar.header("Enter Sample Values")
 
 outlook = st.sidebar.selectbox("Outlook", data['Outlook'].unique())
@@ -102,10 +93,6 @@ if result == "Yes":
     st.success("Prediction: Play Tennis ✅")
 else:
     st.error("Prediction: Do Not Play ❌")
-
-# --------------------------
-# VISUALIZATION (Plotly)
-# --------------------------
 
 st.subheader("📊 Data Visualization")
 
